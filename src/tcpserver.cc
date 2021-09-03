@@ -3,7 +3,8 @@
 tcp_accepted::tcp_accepted(int sock, struct sockaddr_storage addr):
 	tcp_client(sock), addr(addr) {}
 
-tcp_server::tcp_server(std::string service)
+tcp_server::tcp_server(std::string service):
+	backlog(5), buflen(1024)
 {
 	int err;
 	struct addrinfo hints, *result, *rp;
@@ -37,7 +38,7 @@ tcp_server::tcp_server(std::string service)
 		throw myerror("tcp_server", "Could not listen");
 }
 
-tcp_server::tcp_server(int sock): sockfd(sock) {}
+tcp_server::tcp_server(int sock): sockfd(sock), backlog(5), buflen(1024) {}
 
 tcp_server::~tcp_server()
 {

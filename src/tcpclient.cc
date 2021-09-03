@@ -1,6 +1,7 @@
 #include "tcpclient.hh"
 
-tcp_client::tcp_client(std::string host, std::string service)
+tcp_client::tcp_client(std::string host, std::string service):
+	buflen(1024)
 {
 	int err;
 	struct addrinfo hints, *result, *rp;
@@ -29,7 +30,7 @@ tcp_client::tcp_client(std::string host, std::string service)
 		throw myerror("tcp_client", "Could not connect");
 }
 
-tcp_client::tcp_client(int sock): sockfd(sock) {}
+tcp_client::tcp_client(int sock): sockfd(sock), buflen(1024) {}
 
 tcp_client::~tcp_client()
 {

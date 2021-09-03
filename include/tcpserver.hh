@@ -27,8 +27,8 @@ public:
 
 class tcp_server {
 	int sockfd;
-	int backlog = 5;
-	std::size_t buflen = 1024;
+	int backlog;
+	std::size_t buflen;
 public:
 	tcp_server(std::string service);
 	tcp_server(int sock);

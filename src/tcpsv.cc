@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 #include "myerror.hh"
 #include "tcpserver.hh"
@@ -12,8 +13,8 @@ int main(int argc, char **argv)
 	}
 
 	try {
-		auto svr = new tcp_server(argv[1]);
-		auto tcp = svr->waitconnect();
+		tcp_server* svr = new tcp_server(argv[1]);
+		tcp_accepted* tcp = svr->waitconnect();
 		std::string buf;
 
 		tcp->recv(buf);

@@ -20,7 +20,7 @@
 
 class udp_client {
 	int sockfd;
-	std::size_t buflen = 1024;
+	std::size_t buflen;
 public:
 	udp_client(std::string host, std::string service);
 	udp_client(int sock);

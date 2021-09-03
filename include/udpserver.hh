@@ -20,8 +20,7 @@
 
 class udp_server {
 	int sockfd;
-	int backlog = 5;
-	std::size_t buflen = 1024;
+	std::size_t buflen;
 public:
 	udp_server(std::string service);
 	udp_server(int sock);

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 #include "myerror.hh"
 #include "tcpclient.hh"
@@ -12,7 +13,7 @@ int main(int argc, char **argv)
 	}
 
 	try {
-		auto tcp = new tcp_client(argv[1], argv[2]);
+		tcp_client* tcp = new tcp_client(argv[1], argv[2]);
 		std::string buf;
 
 		std::cin >> buf;

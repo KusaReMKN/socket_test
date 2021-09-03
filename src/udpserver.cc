@@ -1,6 +1,7 @@
 #include "udpserver.hh"
 
-udp_server::udp_server(std::string service)
+udp_server::udp_server(std::string service):
+	buflen(1024)
 {
 	int err;
 	struct addrinfo hints, *result, *rp;
@@ -30,7 +31,7 @@ udp_server::udp_server(std::string service)
 		throw myerror("udp_server", "Could not listen");
 }
 
-udp_server::udp_server(int sock): sockfd(sock) {}
+udp_server::udp_server(int sock): sockfd(sock), buflen(1024) {}
 
 udp_server::~udp_server()
 {

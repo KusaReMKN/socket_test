@@ -1,6 +1,7 @@
 #include "udpclient.hh"
 
-udp_client::udp_client(std::string host, std::string service)
+udp_client::udp_client(std::string host, std::string service):
+	buflen(1024)
 {
 	int err;
 	struct addrinfo hints, *result, *rp;
@@ -29,7 +30,7 @@ udp_client::udp_client(std::string host, std::string service)
 		throw myerror("udp_client", "Could not connect");
 }
 
-udp_client::udp_client(int sock): sockfd(sock) {}
+udp_client::udp_client(int sock): sockfd(sock), buflen(1024) {}
 
 udp_client::~udp_client()
 {

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 #include "myerror.hh"
 #include "udpserver.hh"
@@ -12,7 +13,7 @@ int main(int argc, char **argv)
 	}
 
 	try {
-		auto udp = new udp_server(argv[1]);
+		udp_server* udp = new udp_server(argv[1]);
 		struct sockaddr_storage addr;
 		std::string buf;
 

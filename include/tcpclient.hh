@@ -20,7 +20,7 @@
 
 class tcp_client {
 	int sockfd;
-	std::size_t buflen = 1024;
+	std::size_t buflen;
 public:
 	tcp_client(std::string host, std::string service);
 	tcp_client(int sock);

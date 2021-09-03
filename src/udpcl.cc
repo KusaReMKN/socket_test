@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 #include "myerror.hh"
 #include "udpclient.hh"
@@ -12,7 +13,7 @@ int main(int argc, char **argv)
 	}
 
 	try {
-		auto udp = new udp_client(argv[1], argv[2]);
+		udp_client* udp = new udp_client(argv[1], argv[2]);
 		std::string buf;
 
 		std::cin >> buf;

@@ -9,11 +9,17 @@
 
 class myerror {
 public:
-	std::string name = "", description = "";
+	std::string name, description;
 	myerror(std::string name, std::string description)
-		: name(name), description(description) {}
+	{
+		this->name = name;
+		this->description = description;
+	}
 	myerror(std::string name)
-		: name(name) {}
+	{
+		this->name = name;
+		this->description = "";
+	}
 };
 
 #endif // MYERROR_HH
